@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/asset/icon.png" type="image/x-icon">
+    <title>Rieda Nisabel Asyffati Asfa</title>
+  </head>
+  <body>
+    <section class="MAINCONTAINER">
+      <section class="container">
+        <div id="spinner">
+          <div class="mailBody">
+            <div id="topMailOpened"></div>
+            <div id="mailContent">
+              <h1 style="text-align: center;">Scroll Ay <span>❤</span></h1>
+              <p>Hai Ayang Rii<br>
+                Tanggal hari ini adalah tanggal yang paling indah bagi ku,
+                kamu pasti tau kenapa hehe...<br>
+                Makasih kamu udah jadi kado akhir tahun yang terbaik bagi ku,
+                aku harap kedepannya kita bisa bersama-sama menjadi lebih baik
+                lagi dan aku harap aku bisa jadi pasangan yang baik buat kamu.</p>
+              <br>
+              <p>
+                Gk kerasa ya udah 1 bulan, walau kamu sibuk aku sangat
+                menghargai waktu mu, jadi gk bakal maksa buat kamu selalu ada
+                waktu buat aku. Malah aku yang malu masih nganggur :3.
+              </p>
+              <br>
+              <p>Semangat kerjanya, kalo punya masalah jangan sungkan cerita,
+                jaga juga kesehatan, jagain juga hati ku dan aku juga bakal
+                jagain hati mu.</p>
+              <br>
+                <p>I Love You Ay <span>❤</span></p>
+            </div>
+            <div id="frontMail" onclick={rotate()}></div>
+            <div class="topMail" id="open"></div>
+            <div class="leftMail" onclick={rotateBack()} id="leftMailId"></div>
+            <div class="rightMail" onclick={rotateBack()} id="rightMailId"></div>
+            <div class="bottomMail" onclick={rotateBack()} id="bottomMailId">
+            </div>
+            <div id="buttonOpen" onclick={openMail()}>
+              <span>Touch Me</span>
+            </div>
+            <div id="sender">
+              <h1>LOVE LETTER</h1>
+              <p>Rieda Nisabel Asyffati Asfa</p>
+            </div>
+          </div>
+        </div>
+        <div id="bottomHidden">
+          <p style="visibility: hidden;">.</p>
+        </div>
+      </section>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

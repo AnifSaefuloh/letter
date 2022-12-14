@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Love+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --mailColorPrimary: rgb(255, 227, 237);
+  --mailColorSecondary: rgb(255, 230, 245);
+  --letterColor: rgb(250, 250, 250);
+  --backgroundColor: #8AC6D1;
+  --heart: #FF597B;
+}
+
+body {
+  max-height: 250vh;
+  background-color: var(--backgroundColor);
+}
+
+.MAINCONTAINER {
+  width: 100%;
+  height: 100vh;
+}
+
+body .btn {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -50px;
+  padding-top: 10px;
+}
+
+body .btn button {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#buttonBack {
+  display: none;
+}
+
+#spinner {
+  width: 50%;
+  height: 400px;
+}
+
+.mailBody {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#frontMail {
+  width: 100%;
+  height: 100%;
+  background-color: var(--mailColorPrimary);
+  z-index: 15;
+  position: absolute;
+}
+
+#mailContent {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background-color: var(--letterColor);
+  z-index: 4;
+  padding: 5px 12px;
+}
+
+#mailContent h1 {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+#mailContent p {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+#mailContent span {
+  color: red;
+}
+
+#topMailOpened {
+  position: absolute;
+  border-bottom: 125px solid var(--mailColorPrimary);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  top: -75px;
+  height: 0;
+  width: 100%;
+  z-index: 3;
+  display: none;
+}
+
+.topMail {
+  position: absolute;
+  border-top: 125px solid var(--mailColorPrimary);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  top: 0;
+  height: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.leftMail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 90px solid transparent;
+  border-left: 90px solid var(--mailColorPrimary);
+  border-bottom: 90px solid transparent;
+  height: 100%;
+  width: 0;
+  z-index: 5;
+}
+
+.rightMail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top: 90px solid transparent;
+  border-right: 90px solid var(--mailColorPrimary);
+  border-bottom: 90px solid transparent;
+  height: 100%;
+  width: 0;
+  z-index: 5;
+}
+
+.bottomMail {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-bottom: 325px solid var(--mailColorSecondary);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  height: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+#buttonOpen {
+  position: relative;
+  width: 100px;
+  height: 90px;
+  z-index: 14;
+  cursor: pointer;
+  top: 24%;
+  left: 43%;
+}
+
+#buttonOpen:before,
+#buttonOpen:after {
+  position: absolute;
+  content: "";
+  left: 25px;
+  top: 0;
+  width: 25px;
+  height: 45px;
+  background: var(--heart);
+  border-radius: 25px 25px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+#buttonOpen:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+#buttonOpen span {
+  position: relative;
+  top: 5px;
+  left: 3px;
+  z-index: 15;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+
+/* all other browsers */
+@keyframes spinner {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(-180deg);
+  }
+}
+
+.spin {
+  animation-name: spinner;
+  animation-duration: 3s;
+  transform-style: preserve-3d;
+}
+
+@keyframes spinnerBack {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+.spinBack {
+  animation-name: spinnerBack;
+  animation-duration: 3s;
+  transform-style: preserve-3d;
+}
+
+@keyframes openMailMove {
+  0% {
+    top: 0px;
+  }
+
+  10% {
+    top: -1px;
+  }
+
+  75% {
+    top: -75px;
+  }
+
+  100% {
+    top: -75px;
+  }
+}
+
+@keyframes openMailRotate {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+.openMail {
+  animation: openMailRotate 3s, openMailMove 3s;
+  transform-style: preserve-3d;
+  animation-direction: alternate;
+}
+
+#sender {
+  position: absolute;
+  bottom: 30%;
+  left: 33%;
+  z-index: 14;
+  text-align: center;
+}
+
+#sender h1 {
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+}
+
+#sender p {
+  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#bottomHidden {
+  width: 100%;
+  height: 450px;
+  top: 60vh;
+  background-color: var(--backgroundColor);
+  position: absolute;
+  z-index: 20;
+}
+
+
+@media only screen and (max-width: 800px) {
+  body .btn {
+    padding-top: 50px;
+    margin-bottom: -100px;
+  }
+
+  #spinner {
+    width: 80%;
+    height: 200px;
+  }
+
+  #topMailOpened {
+    border-bottom: 75px solid var(--mailColorPrimary);
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+  }
+
+  .topMail {
+    border-top: 75px solid var(--mailColorPrimary);
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+  }
+
+  .leftMail {
+    border-top: 30px solid transparent;
+    border-left: 75px solid var(--mailColorPrimary);
+    border-bottom: 30px solid transparent;
+  }
+
+  .rightMail {
+    border-top: 30px solid transparent;
+    border-right: 75px solid var(--mailColorPrimary);
+    border-bottom: 30px solid transparent;
+  }
+
+  .bottomMail {
+    border-bottom: 170px solid var(--mailColorSecondary);
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+  }
+}
